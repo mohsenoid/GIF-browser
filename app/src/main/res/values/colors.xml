@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">@color/giphyPurpleLight</color>
+    <color name="colorPrimaryDark">@color/giphyPurpleDark</color>
+    <color name="colorAccent">@color/giphyOrange</color>
+
+    <color name="giphyYellow">#FFF39F</color>
+    <color name="giphyOrange">#FB6769</color>
+    <color name="giphyGreen">#2AFC9C</color>
+    <color name="giphyCiyan">#22CDFB</color>
+    <color name="giphyPurpleLight">#9740FA</color>
+    <color name="giphyPurpleDark">#4A1F7C</color>
 </resources>
