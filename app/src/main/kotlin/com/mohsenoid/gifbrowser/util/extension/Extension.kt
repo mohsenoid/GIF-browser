@@ -2,8 +2,11 @@ package com.mohsenoid.gifbrowser.util.extension
 
 import android.app.Activity
 import android.content.Context
+import android.view.View
 import android.view.WindowManager
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import org.koin.core.module.Module
 
 fun Activity.hideKeyboard() {
@@ -13,6 +16,17 @@ fun Activity.hideKeyboard() {
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
     window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+}
+
+fun EditText.onSearchAction(callback: (View) -> Unit) {
+    setOnEditorActionListener { view, actionId, _ ->
+        if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
+            callback.invoke(view)
+            true
+        } else {
+            false
+        }
+    }
 }
 
 operator fun Module.plus(modules: List<Module>): List<Module> = listOf(this) + modules

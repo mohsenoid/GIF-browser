@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GIF Browser</string>
+
+    <string name="search_hint">search…</string>
+    <string name="search_empty_error">What should I search for?</string>
+
+    <string name="offline_app">No network connections</string>
+    <string name="no_offline_data">No offline data!\nConnect network connection and try again…</string>
 </resources>
