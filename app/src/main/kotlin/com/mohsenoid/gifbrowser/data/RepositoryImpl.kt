@@ -21,10 +21,14 @@ class RepositoryImpl(
     private val gifEntityMapper: Mapper<Result, GifEntity>
 ) : Repository {
 
+    private var lastSearchResult: MutableList<GifEntity>? = null
+
     override suspend fun search(query: String, page: Int): List<GifEntity> {
         return withContext(ioDispatcher) {
             val searchResult: List<Result> = fetchNetworkSearch(query, page)
-            val gifEntities = searchResult.map(gifEntityMapper::map)
+            val gifEntities: List<GifEntity> = searchResult.map(gifEntityMapper::map)
+
+            saveLastSearchResult(gifEntities, page)
 
             if (gifEntities.isEmpty()) {
                 when (page) {
@@ -56,5 +60,16 @@ class RepositoryImpl(
                 error = searchResponse.errorBody().toString()
             )
         }
+    }
+
+    private fun saveLastSearchResult(gifEntities: List<GifEntity>, page: Int) {
+        lastSearchResult = when (page) {
+            0 -> gifEntities
+            else -> lastSearchResult?.plus(gifEntities)
+        }?.toMutableList()
+    }
+
+    override fun getLastSearchResult(): List<GifEntity>? {
+        return lastSearchResult?.toList()
     }
 }

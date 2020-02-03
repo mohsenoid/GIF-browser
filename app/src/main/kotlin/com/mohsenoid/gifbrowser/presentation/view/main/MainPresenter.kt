@@ -19,6 +19,7 @@ class MainPresenter(
     override fun bind(view: MainContract.View) {
         this.view = view
 
+        repository.getLastSearchResult()?.let { view.setResult(it.map(gifModelMapper::map)) }
     }
 
     override fun unbind() {
