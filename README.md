@@ -1,6 +1,6 @@
 # GIF-browser [![Actions Status](https://github.com/mohsenoid/GIF-browser/workflows/Android%20CI/badge.svg)](https://github.com/mohsenoid/GIF-browser/actions) [![codecov](https://codecov.io/gh/mohsenoid/GIF-browser/branch/master/graph/badge.svg)](https://codecov.io/gh/mohsenoid/GIF-browser)
 
-This repository contains Giphy GIF browser Android application which is done as [Mobimeo Android Interview Challenge](Mobimeo_Android_Interview_Challenge.pdf).
+This repository contains Giphy GIF browser Android application which is done as Mobimeo Android Interview Challenge.
 
 ![Screenshot](SCREENSHOT1.png) ![Screenshot](SCREENSHOT2.png)
 
