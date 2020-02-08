@@ -28,5 +28,3 @@ fun EditText.onSearchAction(callback: (View) -> Unit) {
         }
     }
 }
-
-operator fun Module.plus(modules: List<Module>): List<Module> = listOf(this) + modules

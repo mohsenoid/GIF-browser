@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 data class SearchResponse(
 
     @SerialName(value = "data")
-    val data: List<Result>,
+    val data: List<Data>,
 
     @SerialName(value = "pagination")
     val pagination: Pagination

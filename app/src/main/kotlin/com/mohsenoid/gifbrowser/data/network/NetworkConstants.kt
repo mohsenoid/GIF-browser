@@ -11,7 +11,7 @@ object NetworkConstants {
 
     const val HTTP_CACHE_PATH = "http-cache"
 
-    const val NETWORK_CONNECTION_TIMEOUT_SEC = 30 // 30 sec
+    const val NETWORK_CONNECTION_TIMEOUT_SEC = 30
     const val CACHE_SIZE_MB = 10
     const val CACHE_MAX_AGE_MIN = 2
     const val CACHE_MAX_STALE_DAY = 7

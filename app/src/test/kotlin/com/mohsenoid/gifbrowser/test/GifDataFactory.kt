@@ -4,7 +4,7 @@ import com.mohsenoid.gifbrowser.data.network.dto.FixedHeight
 import com.mohsenoid.gifbrowser.data.network.dto.Images
 import com.mohsenoid.gifbrowser.data.network.dto.Pagination
 import com.mohsenoid.gifbrowser.data.network.dto.PreviewGif
-import com.mohsenoid.gifbrowser.data.network.dto.Result
+import com.mohsenoid.gifbrowser.data.network.dto.Data
 import com.mohsenoid.gifbrowser.data.network.dto.SearchResponse
 import com.mohsenoid.gifbrowser.domain.entities.GifEntity
 import retrofit2.Response
@@ -13,7 +13,7 @@ object GifDataFactory {
 
     object Network {
 
-        fun searchResponse(data: List<Result> = makeResultss(5)): Response<SearchResponse> {
+        fun searchResponse(data: List<Data> = makeResultss(5)): Response<SearchResponse> {
             val pagination = Pagination(
                 count = DataFactory.randomInt(),
                 offset = DataFactory.randomInt(),
@@ -44,8 +44,8 @@ object GifDataFactory {
             )
         }
 
-        fun makeResult(): Result {
-            return Result(
+        fun makeResult(): Data {
+            return Data(
                 id = DataFactory.randomString(),
                 type = DataFactory.randomString(),
                 title = DataFactory.randomString(),
@@ -54,11 +54,11 @@ object GifDataFactory {
             )
         }
 
-        fun makeResultss(count: Int): List<Result> {
-            val characters: MutableList<Result> = ArrayList()
+        fun makeResultss(count: Int): List<Data> {
+            val characters: MutableList<Data> = ArrayList()
             for (i: Int in 0 until count) {
-                val result: Result = makeResult()
-                characters.add(result)
+                val data: Data = makeResult()
+                characters.add(data)
             }
             return characters
         }

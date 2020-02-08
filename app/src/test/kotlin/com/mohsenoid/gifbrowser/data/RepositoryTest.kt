@@ -3,7 +3,7 @@ package com.mohsenoid.gifbrowser.data
 import com.mohsenoid.gifbrowser.data.mapper.GifEntityMapper
 import com.mohsenoid.gifbrowser.data.mapper.Mapper
 import com.mohsenoid.gifbrowser.data.network.NetworkClient
-import com.mohsenoid.gifbrowser.data.network.dto.Result
+import com.mohsenoid.gifbrowser.data.network.dto.Data
 import com.mohsenoid.gifbrowser.domain.Repository
 import com.mohsenoid.gifbrowser.domain.entities.GifEntity
 import com.mohsenoid.gifbrowser.test.DataFactory
@@ -22,7 +22,7 @@ abstract class RepositoryTest {
 
     private val testDispatcherProvider: DispatcherProvider = TestDispatcherProvider()
 
-    private val gifEntityMapper: Mapper<Result, GifEntity> = GifEntityMapper()
+    private val gifEntityMapper: Mapper<Data, GifEntity> = GifEntityMapper()
 
     @Before
     fun setUp() {

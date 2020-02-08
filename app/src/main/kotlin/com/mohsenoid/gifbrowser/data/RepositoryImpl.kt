@@ -5,7 +5,7 @@ import com.mohsenoid.gifbrowser.data.exception.NoResultException
 import com.mohsenoid.gifbrowser.data.exception.ServerException
 import com.mohsenoid.gifbrowser.data.mapper.Mapper
 import com.mohsenoid.gifbrowser.data.network.NetworkClient
-import com.mohsenoid.gifbrowser.data.network.dto.Result
+import com.mohsenoid.gifbrowser.data.network.dto.Data
 import com.mohsenoid.gifbrowser.data.network.dto.SearchResponse
 import com.mohsenoid.gifbrowser.domain.Repository
 import com.mohsenoid.gifbrowser.domain.Repository.Companion.LIMIT
@@ -18,15 +18,15 @@ class RepositoryImpl(
     private val apiKey: String,
     private val networkClient: NetworkClient,
     private val ioDispatcher: CoroutineDispatcher,
-    private val gifEntityMapper: Mapper<Result, GifEntity>
+    private val gifEntityMapper: Mapper<Data, GifEntity>
 ) : Repository {
 
     private var lastSearchResult: MutableList<GifEntity>? = null
 
     override suspend fun search(query: String, page: Int): List<GifEntity> {
         return withContext(ioDispatcher) {
-            val searchResult: List<Result> = fetchNetworkSearch(query, page)
-            val gifEntities: List<GifEntity> = searchResult.map(gifEntityMapper::map)
+            val searchData: List<Data> = fetchNetworkSearch(query, page)
+            val gifEntities: List<GifEntity> = searchData.map(gifEntityMapper::map)
 
             saveLastSearchResult(gifEntities, page)
 
@@ -41,7 +41,7 @@ class RepositoryImpl(
         }
     }
 
-    private suspend fun fetchNetworkSearch(query: String, page: Int): List<Result> {
+    private suspend fun fetchNetworkSearch(query: String, page: Int): List<Data> {
         val searchResponse: Response<SearchResponse> =
             networkClient.search(apiKey, query, LIMIT, page * LIMIT)
 

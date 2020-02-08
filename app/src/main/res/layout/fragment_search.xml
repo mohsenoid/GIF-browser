@@ -38,5 +38,4 @@
             android:adjustViewBounds="true"
             android:src="@drawable/ic_search" />
     </FrameLayout>
-
 </LinearLayout>

@@ -2,7 +2,7 @@ package com.mohsenoid.gifbrowser.data
 
 import com.mohsenoid.gifbrowser.data.exception.EndOfListException
 import com.mohsenoid.gifbrowser.data.exception.NoResultException
-import com.mohsenoid.gifbrowser.data.network.dto.Result
+import com.mohsenoid.gifbrowser.data.network.dto.Data
 import com.mohsenoid.gifbrowser.data.network.dto.SearchResponse
 import com.mohsenoid.gifbrowser.domain.Repository
 import com.mohsenoid.gifbrowser.test.DataFactory
@@ -52,7 +52,7 @@ class RepositorySearchTest : RepositoryTest() {
             // GIVEN
             val query = DataFactory.randomString()
             val page = 0
-            val data: List<Result> = GifDataFactory.Network.makeResultss(0)
+            val data: List<Data> = GifDataFactory.Network.makeResultss(0)
             stubNetworkClientSearch(GifDataFactory.Network.searchResponse(data))
 
             // WHEN
@@ -69,7 +69,7 @@ class RepositorySearchTest : RepositoryTest() {
             // GIVEN
             val query = DataFactory.randomString()
             val page = 1
-            val data: List<Result> = GifDataFactory.Network.makeResultss(0)
+            val data: List<Data> = GifDataFactory.Network.makeResultss(0)
             stubNetworkClientSearch(GifDataFactory.Network.searchResponse(data))
 
             // WHEN
